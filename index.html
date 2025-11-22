@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3D Room</title>
+  <style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  #boardPrompt {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    display: none;
+    border: 2px solid #ff4444;
+  }
+  
+  #boardUI {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 400px;
+  }
+  
+  #boardUI h2 {
+    margin: 0 0 10px 0;
+    color: #cc0000;
+    font-size: 24px;
+  }
+  
+  #boardInput {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    resize: none;
+    font-family: 'Courier New', monospace;
+  }
+  
+  #boardClose {
+    background: #cc0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+  
+  #boardClose:hover {
+    background: #aa0000;
+  }
+</style>
+
+  <style>
+    body { margin: 0; overflow: hidden; background: #111; }
+    canvas { display: block; }
+  </style>
+
+  <!-- IMPORT MAP -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./three/build/three.module.js",
+      "three/examples/jsm/": "./three/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <canvas id="webgl"></canvas>
+  
+  <!-- Board Proximity Prompt -->
+  <div id="boardPrompt">Press E to write on board</div>
+  
+  <!-- Board Typing Interface -->
+  <div id="boardUI">
+    <h2>Write on Board</h2>
+    <textarea id="boardInput" placeholder="Type your message here..."></textarea>
+    <button id="boardClose">Close (Press E)</button>
+  </div>
+  
+  <script type="module" src="main.js"></script>
+</body>
+</html>
